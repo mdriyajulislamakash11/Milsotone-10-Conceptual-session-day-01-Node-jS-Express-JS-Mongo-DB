@@ -53,8 +53,22 @@ async function run() {
     })
 
 
+    app.put("/users/:id", async (req, res) => {
+        const id = req.params.id;
+        const user = req.body;
+        const filter = {_id : new ObjectId(id)}
+        const option = {upsert : true}
+        const updateUser = {
+            $set : {
+                name: user.name, 
+                email: user.email,
+            }
+        }
+        const result = await userCollection.updateOne(filter, updateUser, option);
+        res.send(result)
+    })
 
-
+ 
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
