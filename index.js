@@ -11,7 +11,7 @@ app.use(express.json());
 // zkGCearveUQRWIaG
 
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://akashAhmed:zkGCearveUQRWIaG@cluster0.zchez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -30,10 +30,6 @@ async function run() {
 
 
     const userCollection = client.db("userInfo").collection("info");
-
-
-
-
 
 
 
