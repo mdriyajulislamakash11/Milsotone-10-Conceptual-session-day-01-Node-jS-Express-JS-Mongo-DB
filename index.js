@@ -31,6 +31,13 @@ async function run() {
 
     const userCollection = client.db("userInfo").collection("info");
 
+    app.get("/users", async (req, res) => {
+        const cursor = userCollection.find()
+        const result = await cursor.toArray();
+        res.send(result)
+    })
+
+
 
 
     // Send a ping to confirm a successful connection
